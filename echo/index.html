@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Echo Web Worker</title>
+</head>
+<body>
+<script>
+	var worker = new Worker('doWork.js');
+
+	worker.addEventListener('message', function(e) {
+		console.log('Worker said: ', e.data);
+	}, false);
+
+	worker.postMessage('Hello World'); // Send data to our worker.
+</script>
+</body>
+</html>
